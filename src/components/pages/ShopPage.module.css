@@ -1,0 +1,21 @@
+.shop {
+  width: 69%;
+  margin: auto;
+
+}
+
+.shop-name {
+  background-color: #f6f9f6;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-bottom: 50px;
+}
+
+.shop .content {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 30px;
+}

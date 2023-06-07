@@ -1,0 +1,27 @@
+.order {
+  width: 69%;
+  margin: auto;
+}
+
+.title {
+  text-align: left;
+  margin: 20px 0;
+  background-color: #eeeeee;
+  padding: 20px;
+}
+
+.order table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 50px 0;
+}
+
+.order td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+.order table thead tr {
+  background-color: #eeeeee;
+}

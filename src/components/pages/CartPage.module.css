@@ -1,0 +1,27 @@
+.cart {
+  width: 69%;
+  margin: auto;
+}
+
+.cart-name {
+  background-color: #f6f9f6;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-bottom: 50px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.cart h3 {
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 30px;
+}

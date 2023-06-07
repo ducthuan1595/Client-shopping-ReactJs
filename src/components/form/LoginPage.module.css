@@ -1,0 +1,65 @@
+.form {
+  width: 69%;
+  margin: auto;
+  background-image: url('../../../public/images/banner1.jpg');
+  background-size: calc(154%);
+  background-position:right;
+  background-position-x:calc(-230px);
+  background-position-y:calc(-20px);
+  background-attachment:scroll;
+  /* background-repeat: no-repeat; */
+
+}
+
+form {
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.form .form-group {
+  background-color: #fff;
+  width: 480px;
+  /* display: none; */
+}
+
+.form h2 {
+  text-align: center;
+  padding: 80px 0 60px;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form input {
+  display: block;
+  width: 360px;
+  padding: 18px 8px;
+  outline: none;
+  border-radius: unset;
+  border: 1px solid #ced4da;
+}
+
+.form button {
+  padding: 14px 0;
+  margin-top: 26px;
+  color: #fff;
+  background-color: #494949;
+  width: 360px;
+}
+
+.form .link {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  margin: 60px 0 80px;
+}
+
+.form a {
+  color: #708ae2;
+  margin-left: 4px;
+}

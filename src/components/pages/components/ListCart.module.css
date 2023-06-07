@@ -1,0 +1,53 @@
+.lists th {
+  background-color: #f8f9fa;
+  border: none;
+}
+
+/* inform product */
+.inform img{
+  width: 100px;
+}
+
+.inform .group i{
+  margin: 0 6px;
+  padding: 0 4px;
+  cursor: pointer;
+}
+
+.inform td {
+  padding: 10px;
+}
+
+.group span {
+  font-style:normal;
+  user-select: none;
+}
+
+.navigate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px 30px;
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  padding: 8px 6px;
+  border: 1px solid #383838;
+}
+
+.left i {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.left {
+  display: flex;
+}
+
+.right i {
+  margin-top: 5px;
+  margin-left: 5px;
+}

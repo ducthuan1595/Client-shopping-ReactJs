@@ -1,0 +1,79 @@
+.history {
+  width: 69%;
+  margin: auto;
+}
+
+.history .title {
+  text-align: left;
+}
+
+.nav {
+  background-color: #f6f9f6;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-bottom: 50px;
+}
+
+.history table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.history .table h4 {
+  text-align: left;
+}
+
+.history th,
+.history td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.history thead tr {
+  background-color: #cbcbcb;
+}
+.history tbody tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.history .btn {
+  border: none;
+  color: #303e26;
+  background-color: #8fdcc8;
+  border-radius: 8px;
+}
+.history .btn:active {
+  opacity: 0.6;
+}
+
+.history .table {
+  margin: 10px 0 50px;
+}
+
+.history .page {
+  text-align: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.history .page button {
+  border: none;
+  padding: 4px 8px;
+  text-align: center;
+}
+.history .page button:active {
+  opacity: 0.6;
+}
+.history .page span {
+  margin: 0 8px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.first-letter::first-letter {
+  text-transform:capitalize;
+  /* font-weight: bold; */
+}

@@ -1,0 +1,56 @@
+.total {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 40px;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+}
+
+.total h4 {
+  text-align: left;
+  padding-left: 12px;
+  padding-bottom: 10px
+}
+
+.show {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  padding: 6px 12px;
+}
+
+.show div {
+  font-weight: 500;
+}
+
+.show .active {
+  font-size: 18px;
+}
+
+.bottom {
+  border-bottom: 1px solid #dadee3;
+}
+
+.total input {
+  width: 90%;
+  padding: 6px 8px;
+  border: 1px solid #dadee3;
+  align-self: center;
+  margin-top: 20px;
+  outline: none;
+}
+
+.total button {
+  align-self: center;
+  font-size: 14px;
+  width: 90%;
+  border: none;
+  color: #fff;
+  padding: 6px 8px;
+  background-color: #383838;
+}
+
+.total button i {
+  margin-right: 8px;
+}
