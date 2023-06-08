@@ -15,9 +15,6 @@ const Chatbot = () => {
   const [getMessages, setGetMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [roomId, setRoomId] = useState('');
-  // const [reciever, setReciever] = useState('')
-
-  // socket.emit('userData', currUser);
 
   const fetchMessage = async (roomId) => {
     if (roomId) {
