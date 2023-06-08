@@ -16,6 +16,7 @@ import RegisterPage from "./components/form/RegisterPage";
 import ShopPage from "./components/pages/ShopPage";
 import HistoryPage from "./components/pages/history/HistoryPage";
 import DetailOrder from "./components/pages/detailOrder/DetailOrder";
+import { ToastContainer, toast } from 'react-toastify';
 
 import "./App.css";
 import { request } from "./services/service";
@@ -63,6 +64,8 @@ function App() {
       {/* <ChatBot steps={steps} /> */}
       <Chatbot />
       <Footer />
+      
+      {/* <ToastContainer /> */}
     </div>
   );
 }

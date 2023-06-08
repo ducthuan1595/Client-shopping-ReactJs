@@ -20,7 +20,6 @@ const Chatbot = () => {
   // socket.emit('userData', currUser);
 
   const fetchMessage = async (roomId) => {
-    console.log(roomId);
     if (roomId) {
 
       try {
@@ -81,7 +80,7 @@ const Chatbot = () => {
       try {
         const { data } = await request.deleteRoom(roomId);
         if (data.message === "ok") {
-          socket.emit('delete-room', data.result)
+          // socket.emit('delete-room', data.result)
           setGetMessages([]);
           setRoomId('');
         }
@@ -111,6 +110,14 @@ const Chatbot = () => {
 
     socket.on('receiver', (data) => {
       setGetMessages(prev => [...prev, data]);
+    })
+
+    socket.on('chat', data => {
+      if(data.action === 'delete-room') {
+        setIsOpen(false);
+      setGetMessages([]);
+      setMessage('');
+      }
     })
 
     return () => {

@@ -2,6 +2,8 @@ import { useState } from "react"
 import { request } from "../../services/service";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Modal from "../Layout/Modal";
 
@@ -69,13 +71,33 @@ const FormCheckout = ({ total }) => {
         userId: currUser?.userId,
         amount: amount,
       }
+      navigate('/');
+      window.scrollTo(0,0);
       const res = await request.postOrder(value);
       if(res.data.message === 'ok') {
+        toast.success('🦄Successfully!', {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
         setIsloading(false);
-        navigate('/');
-        window.scrollTo(0,0);
       }else {
         setErrMessage({field: 'Your information invalid!'});
+        toast.error('🦄 Sorry! Your order is not success', {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }
     }else {
       setErrMessage({field: 'These fields is required!'});
@@ -155,6 +177,20 @@ const FormCheckout = ({ total }) => {
               <button>Place order</button>
             </div>
           </form>
+          <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
     </div>
   )
 }
