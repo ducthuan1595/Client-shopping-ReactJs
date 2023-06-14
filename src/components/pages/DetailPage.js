@@ -7,6 +7,7 @@ import RelatedProducts from "./components/RelatedProducts";
 import styled from "./DetailPage.module.css";
 import { request } from "../../services/service";
 import Modal from "../Layout/Modal";
+import { url } from "../../services/service";
 
 export default function DetailPage() {
   const [quantity, setQuantity] = useState(1);
@@ -19,7 +20,7 @@ export default function DetailPage() {
   if (detailProduct === null) {
     return navigate("/shop");
   }
-  const base64 = Buffer.from(detailProduct.images[0]).toString("base64");
+  // const base64 = Buffer.from(detailProduct.images[0]).toString("base64");
   let price = detailProduct.price
     ?.toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -79,7 +80,6 @@ export default function DetailPage() {
     }
   };
 
-  console.log(detailProduct.count);
   return (
     <div className={styled["detail-product"]}>
       {open && (
@@ -97,12 +97,7 @@ export default function DetailPage() {
             </button>
             <img
               className={styled.show}
-              src={
-                "data:image/jpeg;base64," +
-                Buffer.from(detailProduct.images[sliderNumber]).toString(
-                  "base64"
-                )
-              }
+              src={`${url}/image/${detailProduct.images[sliderNumber]}`}
               alt={detailProduct.name}
             />
             <button
@@ -121,7 +116,7 @@ export default function DetailPage() {
         <div>
           <img
             className={styled.image}
-            src={"data:image/jpeg;base64," + base64}
+            src={`${url}/image/${detailProduct.images[0]}`}
             alt={detailProduct?.name}
           />
           <div className={styled["list-images"]}>
@@ -131,12 +126,7 @@ export default function DetailPage() {
                   <div key={index}>
                     <img
                       onClick={handleShowImage.bind(null, index)}
-                      src={
-                        "data:image/jpeg;base64," +
-                        Buffer.from(image).toString(
-                          "base64"
-                        )
-                      }
+                      src={`${url}/image/${image}`}
                       alt={detailProduct?.name}
                     />
                   </div>

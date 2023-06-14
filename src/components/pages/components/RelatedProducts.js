@@ -4,6 +4,7 @@ import { Buffer } from "buffer";
 
 import { detailProduct } from "../../../store/producterSlice";
 import styled from "./RelatedProducts.module.css";
+import { url } from "../../../services/service";
 
 const RelatedProducts = ({ category, productId }) => {
   const products = useSelector((state) => state.products.products);
@@ -29,13 +30,12 @@ const RelatedProducts = ({ category, productId }) => {
         {categoryProducts &&
           categoryProducts.map((p) => {
             // format a price with dot
-            const base64 = Buffer.from(p.images[0]).toString('base64');
             let price = p.price
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
             return (
               <div className={styled.item} key={p._id} onClick={handleDetail.bind(null, p)}>
-                <img src={'data:image/jpeg;base64,' + base64} alt={p.name} />
+                <img src={`${url}/image/${p.images[0]}`} alt={p.name} />
                 <h5>{p.name}</h5>
                 <p>{price} VND</p>
               </div>

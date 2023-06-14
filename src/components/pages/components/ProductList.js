@@ -4,6 +4,7 @@ import { Buffer } from "buffer";
 
 import { detailProduct } from "../../../store/producterSlice";
 import styled from "./ProductList.module.css";
+import { url } from '../../../services/service';
 
 const ProductList = ({ products }) => {
   const navigate = useNavigate();
@@ -14,7 +15,6 @@ const ProductList = ({ products }) => {
     navigate(`/detail/${product._id}`);
     window.scrollTo(0, 0);
   };
-  console.log(products);
 
   return (
     <section className={styled.products}>
@@ -34,7 +34,7 @@ const ProductList = ({ products }) => {
         {products &&
           products.map((p) => {
             // format a price with dot
-            const base64 = Buffer.from(p.images[0]).toString('base64');
+            // const base64 = Buffer.from(p.images[0]).toString('base64');
             let price = p.price
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -44,7 +44,7 @@ const ProductList = ({ products }) => {
                 key={p._id}
                 onClick={handleDetailProduct.bind(null, p)}
               >
-                <img src={'data:image/jpeg;base64,' + base64} alt={p.name} />
+                <img src={`${url}/image/${p.images[0]}`} alt={p.name} />
                 <h5>{p.name}</h5>
                 <p>{price} VND</p>
               </div>

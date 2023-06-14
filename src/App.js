@@ -24,6 +24,8 @@ import { request } from "./services/service";
 
 function App() {
   const dispatch = useDispatch();
+console.log(process.env)
+
 
   // fetch Api products
   useEffect(() => {

@@ -6,6 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
+// import dotenv from 'dotenv';
+// dotenv.config();
+
+// https://client-shopping-react-js.vercel.app/
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

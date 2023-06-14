@@ -8,6 +8,14 @@
   margin: 20px 0;
   background-color: #eeeeee;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exist {
+  font-size: 50px;
+  padding: 20px;
 }
 
 .order table {

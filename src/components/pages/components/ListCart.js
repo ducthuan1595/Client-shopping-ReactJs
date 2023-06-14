@@ -6,7 +6,7 @@ import styled from "./ListCart.module.css";
 import { useEffect, useState } from "react";
 import { Buffer } from "buffer";
 
-import { request } from "../../../services/service";
+import { request, url } from "../../../services/service";
 import { getCookie } from "../../../store/userSlice";
 
 const ListCart = () => {
@@ -24,7 +24,8 @@ const ListCart = () => {
     try{
       if(currUser && currUser !== 'undefined') {
         const config = {
-          method: 'GET',
+      withCredentials: true,
+      method: 'GET',
           headers: {
             'Authorization': `Bearer ${getCookie()}`
           },
@@ -101,7 +102,7 @@ const ListCart = () => {
           {listCart.length > 0 ?
             listCart.map((p) => {
               const item = p?.productId;
-              const base64 = Buffer.from(item.images[0]).toString('base64');
+              // const base64 = Buffer.from(item.images[0]).toString('base64');
               let price = item?.price
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -111,7 +112,7 @@ const ListCart = () => {
               return (
                 <tr key={item._id} className={styled.inform}>
                   <td>
-                    <img src={'data:image/jpeg;base64,' + base64} alt={item.name} />
+                    <img src={`${url}/image/${item.images[0]}`} alt={item.name} />
                   </td>
                   <td style={{ fontWeight: "bold" }}>{item.name}</td>
                   <td>{price} VND</td>

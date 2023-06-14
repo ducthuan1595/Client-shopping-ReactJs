@@ -1,6 +1,8 @@
 import axios from "axios";
 import { axiosJWT } from "./axios";
 import { getCookie } from "../store/userSlice";
+// require('dotenv').config()
+console.log(process.env)
 
 export const url = "http://localhost:5050/api";
 
@@ -50,7 +52,8 @@ export const request = {
     return axiosJWT.post(`${url}/add-cart`, { userId, productId, quantity }, {
       headers: {
         'Authorization': `Bearer ${getCookie()}`
-      }
+      },
+      withCredentials: true,
     });
   },
   deleteCart: (userId, productId) => {

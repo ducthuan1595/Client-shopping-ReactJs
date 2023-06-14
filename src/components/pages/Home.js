@@ -7,6 +7,7 @@ import { showPopup, getProduct } from "../../store/producterSlice";
 
 import Popup from "../Layout/Popup";
 import styled from "./HomePage.module.css";
+import { url } from '../../services/service';
 
 export default function HomePage() {
   // const [products, setProducts] = useState([]);
@@ -49,21 +50,21 @@ export default function HomePage() {
         <div className={styled.imgs}>
           <div className={styled.col1}>
             <Link to="/shop">
-              <img src="./images/product_1.png" alt="product1" />
+            <img src={process.env.PUBLIC_URL + '/images/product_1.png'} alt="product1" />
             </Link>
             <Link to="/shop">
-              <img src="./images/product_2.png" alt="product2" />
+            <img src={process.env.PUBLIC_URL + '/images/product_2.png'} alt="product1" />
             </Link>
           </div>
           <div className={styled.col2}>
             <Link to="/shop">
-              <img src="./images/product_3.png" alt="product3" />
+            <img src={process.env.PUBLIC_URL + '/images/product_3.png'} alt="product1" />
             </Link>
             <Link to="/shop">
-              <img src="./images/product_4.png" alt="product4" />
+            <img src={process.env.PUBLIC_URL + '/images/product_4.png'} alt="product1" />
             </Link>
             <Link to="/shop">
-              <img src="./images/product_5.png" alt="product5" />
+            <img src={process.env.PUBLIC_URL + '/images/product_5.png'} alt="product1" />
             </Link>
           </div>
         </div>
@@ -77,12 +78,12 @@ export default function HomePage() {
         </div>
         <div className={styled.items}>
           {products && products?.products?.map(p => {
-            const base64 = Buffer.from(p.images[0]).toString('base64');
+            // const base64 = Buffer.from(p.images[0]).toString('base64');
             // format a price with dot
             let price = p.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
             return (
               <div className={styled.item} key={p._id} onClick={handleDetailProduct.bind(null, p)}>
-                <img src={'data:image/jpeg;base64,' + base64} alt={p.name} />
+                <img src={`${url}/image/${p.images[0]}`} alt={p.name} />
                 <h5>{p.name}</h5>
                 <p>{price} VND</p>
               </div>
