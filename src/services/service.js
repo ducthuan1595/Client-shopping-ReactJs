@@ -4,7 +4,8 @@ import { getCookie } from "../store/userSlice";
 // require('dotenv').config()
 // console.log(process.env)
 
-export const url = process.env.REACT_APP_API_URL;
+export const URL_API = process.env.REACT_APP_API_URL;
+export const url = `${URL_API}/api`;
 
 export const request = {
   login: (value) => {
@@ -42,6 +43,7 @@ export const request = {
   },
 
   getProducts: () => {
+
     return axios.get(`${url}/get-all-product`);
   },
 
