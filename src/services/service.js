@@ -2,9 +2,9 @@ import axios from "axios";
 import { axiosJWT } from "./axios";
 import { getCookie } from "../store/userSlice";
 // require('dotenv').config()
-console.log(process.env)
+// console.log(process.env)
 
-export const url = "http://localhost:5050/api";
+export const url = process.env.REACT_APP_API_URL;
 
 export const request = {
   login: (value) => {
