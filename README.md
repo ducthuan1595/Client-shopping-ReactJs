@@ -6,6 +6,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## ENV
+REACT_APP_API_URL=
+
+## FEATURES
+Display items
+Order products
+CRUD product
+Revenue and product management
+Customer chat support
+
 ## Available Scripts
 
 In the project directory, you can run:
