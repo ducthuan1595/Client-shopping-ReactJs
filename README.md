@@ -1,22 +1,25 @@
-# Getting Started with Create React App
+## Project:  E-ECOMMERCE 
 
-## Link online 
+* Assignment 03 (Funix)
 
-`https://client-shopping-react-js.vercel.app/`
+* Create e-commerce platform is an online marketplace that allows businesses and individuals to sell products online. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* Number of members: 01
 
-## ENV
-REACT_APP_API_URL=
+* Technologies:
+- FontEnd: HTML/CSS, ReactJs, Javascript
+- BackEnd: NodeJs, MongoDb(mongoose)
 
 ## FEATURES
-Display items
+Create order
 Order products
 CRUD product
-Revenue and product management
-Customer chat support
+Revenue, product management and orders with Admin page
+Customer chat support with socket.io
+...
 
-## Available Scripts
+
+
 
 In the project directory, you can run:
 
