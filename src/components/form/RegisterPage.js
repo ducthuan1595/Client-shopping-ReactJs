@@ -4,56 +4,60 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "./RegisterPage.module.css";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import handleToast from "../../util/toast";
 
 import { request } from "../../services/service";
 
 export default function RegisterPage() {
   const [isValid, setInvalid] = useState(true);
-  const [messageError, setMessageError] = useState('');
+  const [messageError, setMessageError] = useState("");
   const [valueInput, setValueInput] = useState({
-    name: '',
-    email: '',
-    password: '',
-    phone: ''
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
   });
 
   const navigate = useNavigate();
 
   // target form input
   const handleChangeInput = (e, name) => {
-    let stateCopy = {...valueInput};
+    let stateCopy = { ...valueInput };
     stateCopy[name] = e.target.value;
     setInvalid(false);
     setValueInput(stateCopy);
   };
 
   const handleBlur = (name) => {
-    if(valueInput[name].trim().length === 0) {
+    if (valueInput[name].trim().length === 0) {
       setInvalid(true);
-      setMessageError('Please, this field is require!')
+      setMessageError("Please, this field is require!");
     }
-    if(name === 'password' && valueInput['password'].trim().length < 7) {
+    if (name === "password" && valueInput["password"].trim().length < 7) {
       setInvalid(true);
-      setMessageError('Please, password must at least 8 charts!')
+      setMessageError("Please, password must at least 8 charts!");
     }
-    if(name === 'email' && !valueInput['email'].includes('@')) {
+    if (name === "email" && !valueInput["email"].includes("@")) {
       setInvalid(true);
-      setMessageError('Please, this field must to be email!')
+      setMessageError("Please, this field must to be email!");
     }
-  }
+  };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // valid value input
-    if(!isValid) {
+    if (!isValid) {
       const data = await request.signup(valueInput);
-      if(data.data.message === 'ok') {
-        navigate('/login')
+      if (data.data.message === "ok") {
+        navigate("/login");
+      } else {
+        handleToast(toast.warning, data.data.message);
       }
     }
-  }
-
+  };
 
   return (
     <div className={styled.form}>
@@ -67,7 +71,7 @@ export default function RegisterPage() {
               placeholder="Full Name"
               value={valueInput.name}
               onChange={(e) => handleChangeInput(e, "name")}
-              onBlur={handleBlur.bind(null, 'name')}
+              onBlur={handleBlur.bind(null, "name")}
             />
             <input
               type="email"
@@ -76,7 +80,7 @@ export default function RegisterPage() {
               placeholder="Email"
               value={valueInput.email}
               onChange={(e) => handleChangeInput(e, "email")}
-              onBlur={handleBlur.bind(null, 'email')}
+              onBlur={handleBlur.bind(null, "email")}
             />
             <input
               type="password"
@@ -85,7 +89,7 @@ export default function RegisterPage() {
               placeholder="Password"
               value={valueInput.password}
               onChange={(e) => handleChangeInput(e, "password")}
-              onBlur={handleBlur.bind(null, 'password')}
+              onBlur={handleBlur.bind(null, "password")}
             />
             <input
               type="text"
@@ -94,14 +98,29 @@ export default function RegisterPage() {
               placeholder="Phone"
               value={valueInput.phone}
               onChange={(e) => handleChangeInput(e, "phone")}
-              onBlur={handleBlur.bind(null, 'phone')}
+              onBlur={handleBlur.bind(null, "phone")}
             />
           </div>
-          {isValid && <div style={{color: 'red'}}>{messageError}</div>}
+          {isValid && <div style={{ color: "red" }}>{messageError}</div>}
           <button>SIGN UP</button>
-          <div className={styled.link}>Login?<Link to='/login' >Click</Link></div>
+          <div className={styled.link}>
+            Login?<Link to="/login">Click</Link>
+          </div>
         </div>
       </form>
-      </div>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer />
+    </div>
   );
 }

@@ -145,6 +145,7 @@ const Chatbot = () => {
           >
             {getMessages &&
               getMessages?.map((m) => {
+                console.log({m});
                 return (
                   <div
                     key={m._id}
